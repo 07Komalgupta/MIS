@@ -12,9 +12,10 @@ def login_view(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
-            user1 = LoginUser.objects.get(user = user)
+            
             
             if user is not None:
+                user1 = LoginUser.objects.get(user = user)
                 # user1 = LoginUser.objects.get(user = user)
                 # print('User1 : ', user1.role)
                 login(request,user)
@@ -24,9 +25,12 @@ def login_view(request):
                 elif user1.role == 'trainer':
                     print("Logged In as Trainer")
                     return redirect('trainerhome')
+                elif user1.role == 'centerhead':
+                    print("Logged In as CenterHead")
+                    return redirect('centerheadhome')
             else:
                 messages.info(request, 'Username  OR Password is incorrect. ')
-                # return render(request,'index.html')
+                return render(request,'index.html')
                 
         else:
             return render(request,'index.html')

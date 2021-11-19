@@ -1,4 +1,5 @@
 from django.http import request
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
@@ -13,12 +14,13 @@ class HomeView(TemplateView):
 
 
 class AddStudent(TemplateView):
-    template_name = "counselor/addstudent.html"
+    template_name = "counselor/addnewstudent.html"
     
     def post(self,rerquest):
-        fm = AddNewStudent(request.POST)
+        fm = AddNewStudent(self.request.POST)
         if fm.is_valid():
-            pass
+            fm.save()
+            return HttpResponseRedirect('/')
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)

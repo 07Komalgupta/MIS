@@ -49,8 +49,8 @@
                   Session
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="">Scratch</a></li>
-                  <li><a class="dropdown-item" href="#">Transfer</a></li>
+                  <li><a class="dropdown-item" href="">Search</a></li>
+                  <li><a class="dropdown-item" href="#">Transfer Enquiry</a></li>
                   <li><hr class="dropdown-divider"></li>
                 </ul>
               </li>
@@ -64,7 +64,28 @@
                   <li><hr class="dropdown-divider"></li>
                 </ul>
               </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Enquiry
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">New Enquiry</a></li>
+                  <li><a class="dropdown-item" href="#">Follow-up</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                </ul>
+              </li>
               
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Change Password</a></li>                  
+                  <li><a class="dropdown-item" href="#">DSR</a></li>
+                </ul>
+              </li> 
+
             </ul>
             <a href="{% url 'logout' %}"> <button type="button" class="form-inline mr-4 btn btn-warning">Logout</button> </a>
             <!-- <form class="d-flex">
@@ -75,7 +96,16 @@
         </div>
     </nav>
 
- {% block body %}   {% endblock %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h5 class="mt-2 text-center">You're Logged in as Center Head</h5>
+          <hr class="mt-0 mb-4">
+          {% block body %} {% endblock %}
+        </div>
+      </div>
+    </div>
+
 
 
 

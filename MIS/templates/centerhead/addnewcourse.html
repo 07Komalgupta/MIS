@@ -1,0 +1,21 @@
+{% extends 'centerhead/base.html' %}
+{% block body %}
+
+<h3 class="text-center"> Add New Course </h3>
+<form class="form-control" action="" method="post">
+    {% csrf_token %}
+    <!-- {{ form.as_p }} -->
+    {% for field in form %}
+    <div class="form-group">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">{{ field.label_tag }}</div>
+            <div class="col"> {{ field }}</div>
+            <div class="col"></div>
+        </div>
+    </div>
+    {% endfor %}
+    <input class="btn btn-secondary" type="reset" value="Reset">
+    <input class="btn btn-success" type="submit" value="Submit">
+</form>
+{% endblock %}

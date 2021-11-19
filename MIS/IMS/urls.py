@@ -24,4 +24,5 @@ urlpatterns = [
     path('logout/', logout_view, name="logout"),
     path('counselor/', include('counselor.urls')),
     path('trainer/', include('trainer.urls')),
+    path('centerhead/', include('centerhead.urls')),
 ]
